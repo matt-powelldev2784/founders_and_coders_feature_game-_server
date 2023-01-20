@@ -5,7 +5,7 @@ const HighScores = require('../models/highScores')
 //postNewScore
 router.post('/', async (req, res) => {
   try {
-    const newScore = { name: 'matt', highScore: '200' }
+    const newScore = req.body
 
     await HighScores.create(newScore)
 
@@ -26,8 +26,6 @@ router.get('/', async (req, res) => {
   try {
     const highScores = await HighScores.find()
     return res.json(highScores)
-    // const user = await User.findById(req.user.id).select('-password')
-    // res.json(user)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
