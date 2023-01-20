@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const connectDb = require('./connectDb')
 const highScoresRoute = require('./routes/highScores')
 
