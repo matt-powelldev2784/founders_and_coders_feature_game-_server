@@ -5,7 +5,7 @@ const HighScores = require('../models/highScores')
 //get High Scores
 router.get('/', async (req, res) => {
   try {
-    const highScores = await HighScores.find().sort({ highScore: -1 }).limit(10)
+    const highScores = await HighScores.find().sort({ highScore: -1 }).limit(3)
     return res.json(highScores)
   } catch (err) {
     console.error(err.message)
