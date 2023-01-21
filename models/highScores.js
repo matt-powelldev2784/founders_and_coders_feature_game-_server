@@ -6,7 +6,7 @@ const highScoresSchema = new mongoose.Schema({
     required: true,
   },
   highScore: {
-    type: String,
+    type: Number,
     required: true,
   },
 })

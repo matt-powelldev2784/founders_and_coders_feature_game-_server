@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 //getHighScores
 router.get('/', async (req, res) => {
   try {
-    const highScores = await HighScores.find()
+    const highScores = await HighScores.find().sort({ highScore: -1 }).limit(10)
     return res.json(highScores)
   } catch (err) {
     console.error(err.message)
