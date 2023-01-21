@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const HighScores = require('../models/highScores')
 
-//postNewScore
+//post new score
 router.post('/', async (req, res) => {
   try {
     const newScore = req.body
@@ -15,17 +15,6 @@ router.post('/', async (req, res) => {
       msg: 'New score added to database',
       newScore,
     })
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-//getHighScores
-router.get('/', async (req, res) => {
-  try {
-    const highScores = await HighScores.find().sort({ highScore: -1 }).limit(10)
-    return res.json(highScores)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
